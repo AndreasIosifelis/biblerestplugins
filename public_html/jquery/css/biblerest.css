@@ -1,0 +1,49 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 30 Μαϊ 2014, 3:42:49 μμ
+    Author     : andreas
+*/
+
+#biblerest{
+    width:200px;
+}
+
+.br-container *{
+    font-family: Verdana;
+    font-size:13px;
+}
+
+.br-container input[type='text'],input[type='submit'],input[type='button'],select, button {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width:100%;
+    border:1px solid #ccc;
+    line-height:normal;
+}
+
+.br-container table{
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width:100%;
+}
+
+.br-container table td ul.br-result-body{
+    margin:0px;
+    padding:0px;
+    overflow-y: scroll;    
+    list-style-type: none;
+    height:100px;
+    border:1px solid #ccc;
+}
+
+.br-container table td ul.br-result-body li{
+    padding:1px;
+    margin-bottom:2px;
+}
+
+

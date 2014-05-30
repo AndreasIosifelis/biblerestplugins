@@ -6,11 +6,91 @@ and open the template in the editor.
 -->
 <html>
     <head>
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
         <title>Bible rest jQuery Plugin</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/biblerest.css"/>
+        <script src="js/biblerest.plugin.js"></script>
+
     </head>
     <body>
-        <div></div>
+        <div id="biblerest">
+            <div class="br-container">           
+                <form class="br-form">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td><select>
+                                        <option value="GEN">Γένεση</option>
+                                        <option value="EXO">Έξοδος</option>
+                                        <option value="LEV">Λευιτικό</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select>
+                                        <option value='2'>2</option>
+                                        <option value='2'>2</option>
+                                        <option value='2'>2</option>
+                                        <option value='2'>159</option>
+                                    </select>
+                                </td>                            
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <input type='text' placeholder='filter'/>
+                                </td> 
+                                <td>
+                                    <input type='submit' value='Go' /> 
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan='2'>
+                                    <ul class='br-result-body'>
+                                        <li>1 Εν αρχή εποίησεν O Θεός τον ουρανό και τη γη</li>
+                                        <li>1 Εν αρχή εποίησεν O Θεός τον ουρανό και τη γη</li>
+                                        <li>1 Εν αρχή εποίησεν O Θεός τον ουρανό και τη γη</li>
+                                        <li>1 Εν αρχή εποίησεν O Θεός τον ουρανό και τη γη</li>
+                                        <li>1 Εν αρχή εποίησεν</li>
+                                        <li>1 Εν αρχή εποίησεν</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan='2'>
+                                    <input type='button' value='Load More' />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            $(function() {
+
+               /* $.get('http://localhost:8888/bible/?callback=?', {book: "GEN", chapter: 2}, function(data) {
+                    console.log(data);
+                }, "jsonp");*/
+        
+                var call = $.ajax({
+                    url: "http://localhost:8888/bible/?callback=?",
+                    method: "GET",
+                    dataType: "jsonp",
+                    data:{book: "GEN", chapter: 2}
+                });
+                
+                $.when(call).then(function(d){
+                    console.log(d);
+                });
+
+
+            });
+
+        </script>
     </body>
 </html>
